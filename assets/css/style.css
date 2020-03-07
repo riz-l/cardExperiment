@@ -1,2 +1,163 @@
-/*#region Reset */
+/*#region Reset (DO NOT TOUCH) */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+}
 /*#endregion /Reset */
+
+/*#region Global variables */
+:root {
+  --animation-properties: alternate-gradient 5s alternate infinite;
+  --background-color: linear-gradient(
+      60deg,
+      #5ff281,
+      #5f86f2,
+      #a65ff2,
+      #f25fd0,
+      #f25f61,
+      #f2cb5f
+    )
+    0 50%;
+  --background-size: 300% 300%;
+}
+/*#endregion /Global variables */
+
+/*#region Native styling */
+body {
+  background: #151515;
+}
+
+section {
+  padding: 5rem 0;
+}
+/*#endregion /Native styling */
+
+/*#region Custom styling */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 120rem;
+  padding: 0 1.5rem;
+}
+/*#endregion Custom styling */
+
+/*#region Pricing table */
+.pricing-table {
+  display: grid;
+  grid-gap: 2.5rem;
+  /* Each item will repeat and automatically fit the parent space, with a minimum size of 25rem, and a maximum size of 1 fraction of the available space */
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+.table-item {
+  color: #c2c2c2;
+  font-size: 2.5rem;
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.table-item::after,
+.table-item::before {
+  content: "";
+  position: absolute;
+}
+
+.table-item::before {
+  background-color: #151515;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.table-item::after {
+  animation: var(--animation-properties);
+  background: var(--background-color);
+  background-size: var(--background-size);
+  top: -3px;
+  left: -3px;
+  width: calc(100% + (3px * 2));
+  height: calc(100% + (3px * 2));
+  z-index: -2;
+}
+
+.table-item i {
+  animation: var(--animation-properties);
+  background: var(--background-color);
+  background-clip: text;
+  background-size: var(--background-size);
+  color: transparent;
+  font-size: 10rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+}
+
+.subscription-type {
+  animation: var(--animation-properties);
+  background: var(--background-color);
+  background-clip: text;
+  background-size: var(--background-size);
+  color: transparent;
+  letter-spacing: 1px;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+}
+
+.features-list {
+  letter-spacing: 1px;
+  list-style: none;
+  margin: 1.5 0;
+}
+
+.features-item {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  padding: 1.5rem 0;
+}
+
+.subscription-price {
+  display: block;
+  font-size: 2.5rem;
+  padding: 1.5rem 0;
+}
+
+.cta {
+  background-color: #151515;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  color: #c2c2c2;
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 1rem 3rem;
+  text-decoration: none;
+}
+
+.cta:hover {
+  background-color: #101010;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  color: #fff;
+  transition: 0.8s;
+}
+/*#endregion /Pricing table */
+
+/*#region Animations */
+@keyframes alternate-gradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+/*#endregion /Animations */
